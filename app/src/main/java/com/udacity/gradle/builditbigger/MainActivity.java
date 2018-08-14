@@ -4,15 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-
-import static com.example.jokesprovider.JokesSource.getAJoke;
-import static com.example.showpassedtext.ShowExtraText.JOKE_TAG;
 
 import com.example.showpassedtext.ShowExtraText;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -22,6 +17,10 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
+
+import static com.example.showpassedtext.ShowExtraText.JOKE_TAG;
+
+//import static com.example.jokesprovider.JokesSource.getAJoke;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -96,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             context  = pairs[0];
-            String joke = getAJoke();
+//            String joke = getAJoke();
 
             try {
-                return myApiService.sayHi(joke).execute().getData();
+                return myApiService.sayAJoke().execute().getData();
             } catch (IOException e) {
                 return e.getMessage();
             }
